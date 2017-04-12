@@ -14,13 +14,14 @@ Item {
             Row{
                 Repeater{
                     model: 4
+                    property int outerIndex: index
                     Rectangle{ width: page.height/6
                         height: page.height/6
                         border.color: "#000000"
                         border.width: 1
                         Text{
                             //text: qsTr("Grrr")
-                            text: vueObjetGrille.grilleQML[1]
+                            text: vueObjetGrille.grilleQML[columns.outerIndex * 4 + index]
                             anchors.horizontalCenter: parent.horizontalCenter
                             anchors.verticalCenter: parent.verticalCenter
                         }
