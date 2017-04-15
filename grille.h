@@ -1,25 +1,42 @@
 #ifndef GRILLE_H
 #define GRILLE_H
 
+#include <QAbstractListModel>
 #include <QObject>
-#include <QList>
+#include <QStringList>
 
+static const int tailleGrille = 4;
 
-class grille : public QObject
-{
+class Grille : public QObject {
     Q_OBJECT
+
 public:
-    explicit grille(QObject *parent = 0, int size=4);
-    Q_PROPERTY(QList<QString> grilleQML READ readGrille NOTIFY grilleChanged)
-    QList<QString> readGrille();
+    explicit Grille(QObject *parent = 0);
+
+    void up();
+    void right();
+    void down();
+    void left();
+
+    int get(const int x, const int y) const;
+    int score() const;
+    bool gameover();
+    bool win();
+
 signals:
     void grilleChanged();
+    void scoreChanged();
+    void end();
+
 public slots:
+
 private:
+    int grille[tailleGrille][tailleGrille];
+    int points;
 
-    QList<QList<int>> G;
-    int tailleGrille;
-
+    void start();
+    int valeurAleatoire() const;
+    void tuileAleatoire();
 };
 
 #endif // GRILLE_H

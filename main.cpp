@@ -2,18 +2,16 @@
 #include <QQmlApplicationEngine>
 #include <QtQml>
 
-#include "grille.h"
+#include "grilleModele.h"
 
 int main(int argc, char *argv[])
 {
     QGuiApplication app(argc, argv);
 
-    grille uneGrille;
-
-
     QQmlApplicationEngine engine;
-    engine.rootContext()->setContextProperty("vueObjetGrille", &uneGrille);
-    engine.load(QUrl(QStringLiteral("qrc:/main.qml")));
+    GrilleModele Grille;
+    engine.rootContext()->setContextProperty("Grille", &Grille);
+    engine.load(QUrl(QStringLiteral("qrc:///main.qml")));
 
     return app.exec();
 }
