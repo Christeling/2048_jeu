@@ -13,6 +13,7 @@ class Grille : public QObject {
 public:
     explicit Grille(QObject *parent = 0);
 
+
     void up();
     void right();
     void down();

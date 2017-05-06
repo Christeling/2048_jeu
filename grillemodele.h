@@ -8,7 +8,7 @@ class GrilleModele : public QAbstractListModel
 {
     Q_OBJECT
     Q_PROPERTY(int score READ score NOTIFY scoreChanged)
-    Q_PROPERTY(bool gameover READ gameEnded NOTIFY end)
+    Q_PROPERTY(bool gameover READ gameover NOTIFY end)
     Q_PROPERTY(bool win READ win NOTIFY end)
 
 public:
